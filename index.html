@@ -622,37 +622,13 @@ html, body {
 </header>
 <div id="content" data-customize="true" data-customtheme="true" class="default-bg">
 <div class="main-index">
-<div class="container content-box">
-	<section class="sousuo">
-	  <div class="search">
-		<div class="search-box">
-		  <img class="search-icon" src="images/logo_4.jpg">
-		  <input type="text" id="txt" class="search-input" placeholder="善用搜索">
-		  <button class="search-btn visible-sm visible-md visible-lg" id="search-btn">搜索</button>
-		  <i class="search-clear icon icon-remove-sign" style="display: none;"></i>
-		</div>
-		<!-- 搜索热词 -->
-		<div class="box search-hot-text" id="box" style="display: none;">
-		  <ul></ul>
-		</div>
-		<!-- 搜索引擎 -->
-		<div class="search-engine" style="display: none;">
-		  <div class="search-engine-head">
-			<strong class="search-engine-tit">选择默认搜索引擎：</strong>
-			<div class="search-engine-tool">搜索热词： <span id="hot-btn" class="off"></span></div>
-		  </div>
-		  <ul class="search-engine-list">
-		  </ul>
-		</div>
-	  </div>
-	</section>
 		<div class="row dh">
 			<div class="col-sm-6 col-md-4 mb-3 dh">
 				<div class="row">
 					<div class="col-xs-12"><strong class="dhname" id="1">搜索 · 网页</strong></div>
 					
 					<div class="col-xs-4 mb-2">
-						<a href="index.html" target="_blank">待添加</a>
+						<a href="www.xyz163.com" target="_blank">我的资料库</a>
 					</div>
 					<div class="col-xs-4 mb-2">
 						<a href="index.html" target="_blank">待添加</a>
@@ -961,18 +937,6 @@ $('#get-top').click(function(){
     scrollTop: 0
   }, 800);//点击回到顶部按钮，缓懂回到顶部,数字越小越快
 })
-// 显示/隐藏二级菜单
-$(".left-menu-btn").hover(function(){
-  $('#tow-nav').fadeIn(200);
-},function(){
-  $("#tow-nav").hover(function(){
-    $('#tow-nav').fadeIn(0);
-  },function(){
-    $('#tow-nav').fadeOut(0)
-  });
-  $('#tow-nav').fadeOut(0)
-})
-
 
 //判断用户使用的设备
 var deviceVal  = browserRedirect();
