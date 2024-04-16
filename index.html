@@ -1,899 +1,979 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-<!--头部信息-->
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<!--title keywords description-->
-<title>我的导航</title>
-<meta name="keywords" content="导航,网址"/>
-<meta name="description" content="简单但实用的导航"/>
 
-<!--CSS 若不需要变动样式不用改-->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/zui/1.8.1/css/zui.min.css" rel="stylesheet" type="text/css"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+    <title>张蕊的网址导航</title>
+    <meta name="keywords" content="张蕊的网址导航"/>
+    <meta name="description" content="张蕊的网址导航"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://cdn.bootcss.com/zui/1.8.1/css/zui.min.css">
 <style type="text/css">
-ul {
-    padding: 0;
-}
-li {
-    list-style: none;
-}
-a:hover,a:active,a:focus {
-    text-decoration: none;
-}
-body {
-    background-repeat:repeat;
-    background-attachment:fixed;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-i.icon,i.fa {
-    margin-right: 6px
-}
-.col, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
-    padding: 0px 5px;
-}
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    height: 50px;
-    background: #FFF;
-}
-header .logo {
-    font-size: 20px;
-    height: 50px;
-    margin: 0;
-    font-weight: 400;
-    position: relative;
-    z-index: 99;
-    border-bottom: 1px solid #e8e8e8;
-    background: #FFF;
-    text-align:center;
-}
-header .main {
-    position: relative;
-}
-header .nav {
-    width: 100%;
-    margin-left: 25px;
-    background: #FFF;
-    margin: 0;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
- /* Firefox 4 */
-    -webkit-transition: all 0.4s ease;
- /* Safari  Chrome */
-    -o-transition: all 0.4s ease;
- /* Opera */
-    position: absolute;
-    top: -300px;
-    left: 0;
-}
-header .showNav {
-    top: 50px;
-    box-shadow: 0 5px 5px rgba(204,204,204,.15);
-    -moz-box-shadow: 0 5px 5px rgba(204,204,204,.15);
-}
-header .nav li {
-    font-size: 16px;
-}
-header .nav a {
-    display: block;
-    line-height: 40px;
-    font-size: 16px;
-    color: #959595;
-    padding: 0 25px;
-    border-bottom: 1px solid #f5f5f5;
-}
-header .nav a:hover {
-    border-color: #459df5;
-    color: #459df5;
-}
-header .head-btn {
-    float: right;
-    line-height: 60px;
-}
-header .head-btn a {
-    margin-left: 5px;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    background: #f5f5f5;
-    color: #03b8cf;
-    border: 1px solid #e5e5e5;
-    transition: all .2s;
-    -moz-transition: all .2s;
- /* Firefox 4 */
-    -webkit-transition: all .2s;
- /* Safari Chrome */
-    -o-transition: all .2s;
- /* Opera */
-}
-header .head-btn a:hover {
-    background: #03b8cf;
-    color: #FFF;
-    border: 1px solid #03b8cf;
-}
-header .head-btn a>i {
-    margin-right: 0px;
-    font-size: 15px;
-}
-header .nav-btn {
-    position: fixed;
-    border: none;
-    background: transparent;
-    top: 0;
-    left: 10px;
-    outline: 0;
-    margin-top: 10px;
-    z-index: 100
-}
-header .nav-btn {
-    left: inherit;
-    right: 10px;
-}
-header .nav-btn .icon-line {
-    display: block;
-    margin: 6px 0;
-    width: 25px;
-    height: 2px;
-    background: #999;
-    cursor: pointer;
-    transition: all .4s ease;
-    -moz-transition: all .4s ease;
- /* Firefox 4 */
-    -webkit-transition: all .4s ease;
- /* Safari  Chrome */
-    -o-transition: all .4s ease;
- /* Opera */
-}
-header .nav-btn .middle {
-    margin: 0 auto;
-}
-header .animated2 .top {
-    transform: translateY(8px) rotateZ(45deg);
-    -ms-transform: translateY(8px) rotateZ(45deg);
-   /* IE 9 */
-    -moz-transform: translateY(8px) rotateZ(45deg);
-   /* Firefox */
-    -webkit-transform: translateY(8px) rotateZ(45deg);
- /* Safari Chrome */
-    -o-transform: translateY(8px) rotateZ(45deg);
-   /* Opera */
-}
-header .animated2 .middle {
-    width: 0;
-}
-header .animated2 .bottom {
-    transform: translateY(-8px) rotateZ(-45deg);
-    -ms-transform: translateY(-8px) rotateZ(-45deg);
-   /* IE 9 */
-    -moz-transform: translateY(-8px) rotateZ(-45deg);
-   /* Firefox */
-    -webkit-transform: translateY(-8px) rotateZ(-45deg);
- /* Safari Chrome */
-    -o-transform: translateY(-8px) rotateZ(-45deg);
-   /* Opera */
-}
-.left-bar {
-    position: fixed;
-    top: 50px;
-    left: -240px;
-    width: 200px;
-    max-width: 100%;
-    height: 100%;
-    background: #353535;
-    z-index: 12;
-    transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
- /* Firefox 4 */
-    -webkit-transition: all 0.4s ease;
- /* Safari Chrome */
-    -o-transition: all 0.4s ease;
- /* Opera */
-    transform: translateZ(0);
-    -ms-transform: translateZ(0);
-   /* IE 9 */
-    -moz-transform: translateZ(0);
-   /* Firefox */
-    -webkit-transform: translateZ(0);
- /* Safari  Chrome */
-    -o-transform: translateZ(0);
-   /* Opera */
-}
-.left-bar .header {
-    padding: 0px 15px;
-    border-bottom: 1px solid #464646;
-}
-.left-bar .header h2 {
-    font-size: 17px;
-    line-height: 40px;
-    max-width: 100%;
-    overflow: hidden;
-    margin: 0;
-    font-weight: 400;
-    display: block;
-    color: #ccc;
-}
-.left-bar .menu {
-    height: 450px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #424242
-}
-.left-bar .menu ul li a {
-    display: block;
-    height: 35px;
-    line-height: 35px;
-    font-size: 14px;
-    color: #777;
-    padding-left: 38px;
-}
-.scrollcontent {
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding-right: 4px;
-    padding-top: 5px
-}
-.left-bar .menu ul li a:hover {
-    background: #f5f5f5
-}
-.left-bar .menu ul li i.fa {
-    width: 15px;
-    text-align: center;
-    margin-right: 20px
-}
-.left-bar .tree li.open > ul::-webkit-scrollbar {
-    width: 3px;
-    margin-right: 2px
-}
-.menu-about p {
-    font-size: 12px;
-    color: #ccc;
-    text-align: center;
-}
-#content {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
-#content > .Off-left-menu {
-    display: none;
-}
-#content > div.center-main {
-    margin: 0 auto;
-}
-.sousuo {
-    padding: 35px 0;
-}
-.search {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-}
-.search-box {
-    height: 50px;
-  /*box-shadow: 0px 0px 2px 0px #ccc;*/
-    border-radius: 10px;
-    overflow: hidden;
-    display: -webkit-flex;
- /* Safari */
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid #e6e6e6
-}
-.search-engine-name {
-    width: 69px;
-    height: 50px;
-    background: #16C0F8;
-    border: none;
-    color: #fff;
-    font-weight: bold;
-    outline: none;
-}
-.search-input {
-    box-sizing: border-box;
-    flex: 1;
-    height: 50px;
-    line-height: 50px;
-    font-size: 16px;
-    color: #999;
-    border: none;
-    outline: none;
-    padding-left: 6px;
-}
-input::-webkit-input-placeholder {
-    font-size: 12px;
-    letter-spacing: 1px;
-    color: #ccc;
-}
-.search-btn {
-    width: 80px;
-    height: 50px;
-    background: #16C0F8;
-    border: none;
-    color: #fff;
-    font-weight: bold;
-    outline: none;
-}
-.search-engine {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #FFF;
-    padding: 15px 0 0 15px;
-    border-radius: 5px;
-    box-shadow: 0px 5px 20px 0px #d8d7d7;
-    transition: all 0.3s;
-    display: none;
-    z-index: 999
-}
-.search-engine-head {
-    overflow: hidden;
-    margin-bottom: 10px;
-    padding-right: 15px;
-}
-.search-engine-tit {
-    float: left;
-    margin: 0;
-    font-size: 14px;
-    color: #999;
-}
-.search-engine ul::before {
-    content: '';
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    top: -15px;
-    border-top: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #fff;
-    border-left: 8px solid transparent;
-}
-.search-engine-list::after {
-    content: '';
-    width: 70px;
-    height: 18px;
-    position: absolute;
-    top: -17px;
-    left: 1px;
-}
-.search-engine-list li {
-    float: left;
-    width: 30%;
-    line-height: 30px;
-    font-size: 14px;
-    padding: 5px 10px 5px 10px;
-    margin: 0 10px 10px 0;
-    background: #f9f9f9;
-    color: #999;
-    cursor: pointer
-}
-.search-engine-list li img {
-    width: 25px;
-    height: 25px;
-    border-radius: 15px;
-    float: left;
-    margin-right: 5px;
-    margin-top: 2.5px;
-}
-#content .content-box {
-    padding-top: 51px
-}
-.content-box {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 10px;
-}
-.item {
-    width: 100%;
-}
-.item > .container-fluid {
-    padding-top: 0;
-    margin-top: 0;
-}
-.item > .container-fluid .row {
-    padding: 10px 5px;
-}
-.item-tit > strong {
-    color: #999;
-    font-size: 18px;
-    font-weight: 400;
-    display: block;
-    margin-bottom: 10px;
-    padding-left: 5px;
-}
-.item-tit > strong > i {
-    margin-right: 5px;
-    font-size: 18px;
-}
-.card-link {
-    display: block;
-    padding: 10px 10px;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 10px;
-    background: #fff;
-    transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
- /* Firefox 4 */
-    -webkit-transition: all 0.2s ease-out;
- /* Safari Chrome */
-    -o-transition: all 0.2s ease-out;
- /* Opera */
-}
-.card-link:hover {
-    transform: translateY(-5px);
-    -ms-transform: translateY(-5px);
-   /* IE 9 */
-    -moz-transform: translateY(-5px);
-   /* Firefox */
-    -webkit-transform: translateY(-5px);
- /* Safari  Chrome */
-    -o-transform: translateY(-5px);
-   /* Opera */
-    box-shadow: 4px 4px 10px rgba(204, 204, 204, 0.5);
-    -moz-box-shadow: 4px 4px 10px rgba(204, 204, 204, 0.5);
- /* Firefox */
-}
-.card-tit {
-    height: 20px;
-    font-size: 14px;
-    font-weight: 700;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-}
-.card-tit img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 5px;
-}
-.card-desc {
-    color: gray;
-    font-size: 12px;
-    padding-top: 10px;
-    height: 45px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-.content-box .list-box {
-    background: #FFF;
-    padding: 20px 10px 0px 10px;
-    margin: 0;
-}
-#get-top {
-    width: 40px;
-    height: 40px;
-    background: #03b8cf;
-    color: #FFF;
-    position: fixed;
-    right: 15px;
-    bottom: 55px;
-    line-height: 30px;
-    text-align: center;
-    font-size: 30px;
-    cursor: pointer;
-    display: none;
-    z-index: 100;
-}
-#get-top i {
-    margin: 0;
-    font-size: 20px;
-}
-.footer {
-    padding: 15px 20px 10px 20px;
-    border-top: 1px solid #d0d0d0;
-    background-color: #e8e8e8;
-    text-align: center;
-    font-size: 14px;
-    color: #5d5d5d;
-}
-@media (min-width: 768px) {
-    .col, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
-        padding: 0 10px
-    }
-    #content .main {
-        padding-top: 51px;
-    }
-    .sousuo {
-        padding: 10px 0 50px 0;
-        margin-top: 0;
-    }
-    .sousuo-form {
-        width: 100%;
-        margin: 0 auto;
-    }
-    #input {
-        outline: none;
-        padding: 0 10px;
-        height: 46px;
-        line-height: 46px;
-        border: 1px solid #ccc;
-        border-left: none;
-        display: block;
-        padding-left: 90px;
-    }
-    .link-box {
-        width: 12.5%;
-        float: left
-    }
-    .item-tit > strong {
-        padding: 5px 0 0 10px;
-        margin-bottom: 10px;
-    }
-    .get-home {
-        margin: 0;
-        margin-top: 20px;
-    }
-    .footer {
-        margin-top: 20px;
-    }
-}
-@media (min-width: 992px) {
-    header {
-        height: 60px;
-        border-bottom: 1px solid #e8e8e8;
-    }
-    header .main {
-        padding: 0 22px;
-    }
-    header .logo {
-        float: left;
-        font-size: 22px;
-        margin: 0;
-        font-weight: 400;
-        border: none;
-    }
-    header .logo a {
-        display: block;
-        line-height: 50px;
-        color: #484848;
-        font-weight: 400;
-    }
-    header .logo img {
-        width: 30px;
-        vertical-align: -10px;
-    }
-    header .nav {
-        float: left;
-        margin-left: 25px;
-        padding-top: 0px;
+html, body {
         height: 100%;
-        display: block;
-        overflow: hidden;
-        position: static;
-        width: auto;
-        box-shadow: none;
     }
-    header .nav li {
-        float: left;
-        font-size: 16px;
-    }
-    header .nav a {
-        display: block;
-        line-height: 59px;
-        color: #959595;
-        padding: 0 18px;
-        border-bottom: 1px solid #e8e8e8;
-    }
-    header .nav a:hover {
-        border-color: #459df5;
-        color: #459df5;
-    }
-    .left-bar {
-        height: 100%;
-        background: #FFF;
-        top: 60px;
-        left: 0;
-        z-index: 1;
-    }
-    .left-bar .header {
-        padding: 11px 0px;
-        border-bottom: none;
-        margin: 0 25px;
-        padding-top: 15px;
-    }
-    .left-bar .header h2 {
-        color: #28b779;
-        font-size: 16px;
-        font-weight: bold;
-        line-height: inherit;
-        border-left: 3px solid #28b779;
-        padding-left: 10px;
-    }
-    .left-bar .menu {
-        height: 600px;
-        border-top: 1px solid #f2f2f2;
-        border-bottom: 1px solid #f2f2f2
-    }
-    .left-bar .tree-menu {
-        border-bottom: 1px solid #e8e8e8;
-    }
-    .left-bar .tree li.open > ul {
-        height: 281px;
-        background: #f5f5f5;
-    }
-    .tree-menu li li a {
-        color: #797979;
-        font-size: 14px;
-    }
-    .search {
-        width: 650px;
-    }
-    .search-engine {
-        width: 650px;
-    }
-    .search-engine-list li {
-        width: 112px;
-        margin: 0 15px 15px 0;
-    }
-    #content .main {
-        margin-left: 200px;
-        padding-top: 70px
-    }
-    .content-box {
-        padding: 0 10px;
-        padding-top: 61px
-    }
-    .nav-item .container-fluid {
-        padding: 20px 20px 10px 20px;
-    }
-    .item > .container-fluid .row {
-        padding: 0;
-    }
-    .card-box .col-md-3 {
-        padding: 0 7.5px;
-    }
-    .card-link {
-        margin-bottom: 15px;
-    }
-    .main .list-box .menu-list {
-        margin: 0px 10px 20px 10px;
-    }
-    .nav-tabs > li > a {
-        padding: 4px 15px;
-    }
-    .footer {
-        margin-top: 30px;
-    }
-}
-@media (min-width: 1200px) {
-    header .nav a {
-        padding: 0 25px;
-    }
-    .content-box {
-        padding: 0 20px;
-    }
-    .sousuo-form {
-        width: 60%
-    }
-    .item > .container-fluid {
-        padding: 0;
-        padding-top: 91px;
-        margin-top: -65px;
-    }
-}
-@media (min-width: 1700px) {
-    .content-box {
-        max-width: 1400px;
-    }
-    .col-md-3 {
-        width: 20%;
-    }
-}
+	body {
+		background: #f2f2f2;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	a:hover, a:active, a:focus {
+		text-decoration: none;
+	}
+	dl, ol, ul {
+		margin-top: 0;
+		margin-bottom: 1rem;
+	}
+	li {
+		list-style: none;
+	}
+	ul {
+		padding: 0;
+	}
+	.dh {
+		padding: 0px 10px;
+		margin-bottom:10px;
+	}
+	.dh .col-xs-4 {
+		padding: 0 3px;
+	}
+	.dh a{
+		background: rgba(255,255,255,1);
+		text-align: center;
+		display: block;
+		line-height: 45px;
+		border-radius: 2px;
+		font-size: 14px;
+		color: #808080;
+		transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-webkit-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+	}
+	.dh a:hover {
+		color: #FFF;
+		font-size: 20px;
+		font-weight: bold;
+		background: #459df5;
+	}
+	.dhname {
+		font-size: 16px;
+		font-weight: 400;
+		color: #808080;
+		display: block;
+		margin-bottom: 5px;
+	}
+	.sousuo {
+		padding: 35px 0;
+	}
+	.search {
+		position: relative;
+		width: 100%;
+		margin: 0 auto;
+	}
+	.search-box {
+		height: 50px;
+		/* box-shadow: 0px 0px 2px 0px #ccc; */
+		border-radius: 10px;
+		overflow: hidden;
+		display: -webkit-flex;
+		display: flex;
+		flex-wrap: wrap;
+		border: 1px solid #e6e6e6;
+	}
+	.search-icon {
+		position: absolute;
+		left: 3px;
+		top: 5px;
+		width: 41px;
+		height: 41px;
+		overflow: hidden;
+		border-radius: 25px;
+		cursor: pointer;
+	}
+	.search-input {
+		box-sizing: border-box;
+		flex: 1;
+		height: 50px;
+		line-height: 50px;
+		font-size: 16px;
+		color: #999;
+		border: none;
+		outline: none;
+		padding-left: 45px;
+	}
+	.search-clear {
+		position: absolute;
+		right: 15px;
+		top: 50%;
+		font-size: 20px;
+		color: #999999;
+		margin-top: -10px;
+		cursor: pointer;
+		display: none;
+	}
+	.search-engine {
+		position: absolute;
+		top: 60px;
+		left: 0;
+		width: 100%;
+		background: #FFF;
+		padding: 15px 0 0 15px;
+		border-radius: 5px;
+		box-shadow: 0px 5px 20px 0px #d8d7d7;
+		transition: all 0.3s;
+		display: none;
+		z-index: 999;
+	}
+	.search-engine-head {
+		overflow: hidden;
+		margin-bottom: 10px;
+		padding-right: 15px;
+	}
+	.search-engine-tit {
+		float: left;
+		margin: 0;
+		font-size: 14px;
+		color: #999;
+	}
+	.search-engine-tool {
+		float: right;
+		font-size: 12px;
+		color: #999;
+	}
+	.search-engine-tool > span.off {
+		background-position: -30px 0px;
+	}
+	.search-engine-tool > span {
+		float: right;
+		display: inline-block;
+		width: 25px;
+		height: 15px;
+		background: url(../images/off_on.png) no-repeat 0px 0px;
+		cursor: pointer;
+	}
+	.search-engine-list::after {
+		content: '';
+		width: 70px;
+		height: 18px;
+		position: absolute;
+		top: -17px;
+		left: 1px;
+	}
+	.search-engine-list li {
+		float: left;
+		width: 30%;
+		line-height: 30px;
+		font-size: 14px;
+		padding: 5px 10px 5px 10px;
+		margin: 0 10px 10px 0;
+		background: #f9f9f9;
+		color: #999;
+		cursor: pointer;
+		list-style: none;
+	}
+	.search-engine ul {
+		padding: 0;
+	}
+	.search-engine-list li img {
+		width: 25px;
+		height: 25px;
+		border-radius: 15px;
+		float: left;
+		margin-right: 5px;
+		margin-top: 2.5px;
+	}
+	.search-engine ul::before {
+		content: '';
+		width: 0px;
+		height: 0px;
+		position: absolute;
+		top: -15px;
+		border-top: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-bottom: 8px solid #fff;
+		border-left: 8px solid transparent;
+	}
+	.search-btn {
+		width: 80px;
+		height: 50px;
+		background: #fff;
+		border: none;
+		color: #64B5F6;
+		font-weight: bold;
+		border-left: 1px solid #e6e6e6;
+		outline: none;
+	}
+	.hidden-xs {
+		display: block!important;
+	}
+	.search-hot-text {
+		position: absolute;
+		z-index: 100;
+		width: 100%;
+		border-radius: 0 0 10px 10px;
+		background: #FFF;
+		box-shadow: 0px 4px 5px 0px #cccccc94;
+	}
+	.search-hot-text ul li {
+		border-top: 1px solid #f2f2f2;
+		line-height: 30px;
+		font-size: 14px;
+		padding: 0px 25px;
+		color: #777;
+		cursor: pointer;
+	}
+	.search-hot-text ul {
+		margin: 0;
+	}
+	.mb-2, .my-2 {
+		margin-bottom: .5rem!important;
+	}
+	header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 100;
+		height: 50px;
+		background: #FFF;
+	}
+	header .main {
+		position: relative;
+	}
+	.not_operational {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+		background: rgba(255,255,255,.8);
+		display: none;
+	}
+	#content .content-box {
+		padding-top: 51px;
+	}
+	.content-box {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 10px;
+	}
+	header .logo {
+		font-size: 20px;
+		margin: 0;
+		font-weight: 400;
+		text-align: center;
+		position: relative;
+		z-index: 99;
+		border-bottom: 1px solid #e8e8e8;
+		background: #FFF;
+	}
+	header .logo a {
+		line-height: 50px;
+		color: #484848;
+		font-weight: bold;
+	}
+	header .logo img {
+		width: 25px;
+	}
+	header .logo img {
+		animation: donghua 1.7s linear infinite;
+		-webkit-animation: donghua 1.7s linear infinite;
+		-moz-animation: donghua 1.7s linear infinite;
+		-o-animation: donghua 1.7s linear infinite;
+		-ms-animation: donghua 1.7s linear infinite;
+	}
+	@-webkit-keyframes donghua{
+		0%{
+			transform: rotate(0deg);
+			-ms-transform: rotate(0deg);   /* IE 9 */
+			-moz-transform: rotate(0deg);   /* Firefox */
+			-webkit-transform: rotate(0deg); /* Safari 和 Chrome */
+			-o-transform: rotate(0deg);   /* Opera */
+		}
+		100%{
+			transform: rotate(-360deg);
+			-ms-transform: rotate(-360deg);   /* IE 9 */
+			-moz-transform: rotate(-360deg);   /* Firefox */
+			-webkit-transform: rotate(-360deg); /* Safari 和 Chrome */
+			-o-transform: rotate(-360deg);   /* Opera */
+		}
+	}
+	@-moz-keyframes donghua{
+		0%{
+			transform: rotate(0deg);
+			-ms-transform: rotate(0deg);   /* IE 9 */
+			-moz-transform: rotate(0deg);   /* Firefox */
+			-webkit-transform: rotate(0deg); /* Safari 和 Chrome */
+			-o-transform: rotate(0deg);   /* Opera */
+		}
+		100%{
+			transform: rotate(-360deg);
+			-ms-transform: rotate(-360deg);   /* IE 9 */
+			-moz-transform: rotate(-360deg);   /* Firefox */
+			-webkit-transform: rotate(-360deg); /* Safari 和 Chrome */
+			-o-transform: rotate(-360deg);   /* Opera */
+		}
+	}
+	@-ms-keyframes donghua{
+		0%{
+			transform: rotate(0deg);
+			-ms-transform: rotate(0deg);   /* IE 9 */
+			-moz-transform: rotate(0deg);   /* Firefox */
+			-webkit-transform: rotate(0deg); /* Safari 和 Chrome */
+			-o-transform: rotate(0deg);   /* Opera */
+		}
+		100%{
+			transform: rotate(-360deg);
+			-ms-transform: rotate(-360deg);   /* IE 9 */
+			-moz-transform: rotate(-360deg);   /* Firefox */
+			-webkit-transform: rotate(-360deg); /* Safari 和 Chrome */
+			-o-transform: rotate(-360deg);   /* Opera */
+		}
+	}
+	@-o-keyframes donghua{
+		0%{
+			transform: rotate(0deg);
+			-ms-transform: rotate(0deg);   /* IE 9 */
+			-moz-transform: rotate(0deg);   /* Firefox */
+			-webkit-transform: rotate(0deg); /* Safari 和 Chrome */
+			-o-transform: rotate(0deg);   /* Opera */
+		}
+		100%{
+			transform: rotate(-360deg);
+			-ms-transform: rotate(-360deg);   /* IE 9 */
+			-moz-transform: rotate(-360deg);   /* Firefox */
+			-webkit-transform: rotate(-360deg); /* Safari 和 Chrome */
+			-o-transform: rotate(-360deg);   /* Opera */
+		}
+	}
+	header .nav {
+		width: 100%;
+		margin-left: 25px;
+		background: #FFF;
+		margin: 0;
+		overflow: hidden;
+		transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-webkit-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+		position: absolute;
+		top: -300px;
+		left: 0;
+	}
+	
+	header .showNav {
+		top: 50px;
+		box-shadow: 0 5px 5px rgba(204,204,204,.15);
+		-moz-box-shadow: 0 5px 5px rgba(204,204,204,.15);
+	}
+	header .nav a {
+		display: block;
+		line-height: 40px;
+		font-size: 16px;
+		color: #959595;
+		padding: 0 25px;
+		border-bottom: 1px solid #f5f5f5;
+	}
+	header .head-btn {
+		float: right;
+		line-height: 60px;
+	}
+	header .bar-btn, header .nav-btn {
+		position: fixed;
+		border: none;
+		background: transparent;
+		top: 0;
+		left: 10px;
+		outline: 0;
+		margin-top: 10px;
+		z-index: 100;
+	}
+	header .bar-btn .icon-bar, header .nav-btn .icon-line {
+		display: block;
+		margin: 6px 0;
+		width: 25px;
+		height: 2px;
+		background: #999;
+		cursor: pointer;
+		transition: all .4s ease;
+		-moz-transition: all .4s ease;
+		-webkit-transition: all .4s ease;
+		-o-transition: all .4s ease;
+	}
+	header .bar-btn .bar-line1 {
+		transform: translateY(8px) rotateZ(90deg);
+		-ms-transform: translateY(8px) rotateZ(90deg);
+		-moz-transform: translateY(8px) rotateZ(90deg);
+		-webkit-transform: translateY(8px) rotateZ(90deg);
+		-o-transform: translateY(8px) rotateZ(90deg);
+	}
+	header .bar-btn .bar-line2 {
+		transform: translateY(0px) rotateZ(0deg);
+		-ms-transform: translateY(0px) rotateZ(0deg);
+		-moz-transform: translateY(0px) rotateZ(0deg);
+		-webkit-transform: translateY(0px) rotateZ(0deg);
+		-o-transform: translateY(0px) rotateZ(0deg);
+	}
+	header .animated1 .bar-line2 {
+		transform: translateY(0px) rotateZ(90deg);
+		-ms-transform: translateY(0px) rotateZ(90deg);
+		-moz-transform: translateY(0px) rotateZ(90deg);
+		-webkit-transform: translateY(0px) rotateZ(90deg);
+		-o-transform: translateY(0px) rotateZ(90deg);
+	}
+	header .nav-btn {
+		left: inherit;
+		right: 10px;
+	}
+	header .bar-btn .icon-bar, header .nav-btn .icon-line {
+		display: block;
+		margin: 6px 0;
+		width: 25px;
+		height: 2px;
+		background: #999;
+		cursor: pointer;
+		transition: all .4s ease;
+		-moz-transition: all .4s ease;
+		-webkit-transition: all .4s ease;
+		-o-transition: all .4s ease;
+	}
+	header .nav-btn .middle {
+		margin: 0 auto;
+	}
+	header .animated1 .bar-line1 {
+		transform: translateY(8px) rotateZ(180deg);
+		-ms-transform: translateY(8px) rotateZ(180deg);
+		-moz-transform: translateY(8px) rotateZ(180deg);
+		-webkit-transform: translateY(8px) rotateZ(180deg);
+		-o-transform: translateY(8px) rotateZ(180deg);
+	}
+	header .animated2 .top {
+		transform: translateY(8px) rotateZ(45deg);
+		-ms-transform: translateY(8px) rotateZ(45deg);
+		-moz-transform: translateY(8px) rotateZ(45deg);
+		-webkit-transform: translateY(8px) rotateZ(45deg);
+		-o-transform: translateY(8px) rotateZ(45deg);
+	}
+	header .animated2 .middle {
+		width: 0;
+	}
+	header .animated2 .bottom {
+		transform: translateY(-8px) rotateZ(-45deg);
+		-ms-transform: translateY(-8px) rotateZ(-45deg);
+		-moz-transform: translateY(-8px) rotateZ(-45deg);
+		-webkit-transform: translateY(-8px) rotateZ(-45deg);
+		-o-transform: translateY(-8px) rotateZ(-45deg);
+	}
+	
+	#content {
+		 min-height: 100%;
+	}
+	.main-index{
+	    padding-bottom: 50px;
+	}
+	#get-top {
+		width: 40px;
+		height: 40px;
+		background: #03b8cf;
+		color: #FFF;
+		position: fixed;
+		right: 15px;
+		bottom: 55px;
+		line-height: 30px;
+		text-align: center;
+		font-size: 30px;
+		cursor: pointer;
+		display: none;
+		z-index: 100;
+	}
+	#get-top i {
+		margin: 0;
+		font-size: 20px;
+	}
+	.footer {
+		width: 100%;
+		background-color: #fff;
+		font-size: 13px;
+		padding-top: 15px;
+		margin-top: -50px;
+        height: 50px;
+        z-index: 9999;
+		color: #959595;
+	}	
+	.footer a{
+		color: #959595;
+	}	
+	@media (min-width: 992px){
+		.search {
+			width: 650px;
+		}
+		.search-engine {
+			width: 650px;
+		}
+		.search-engine-list li {
+			width: 112px;
+			margin: 0 15px 15px 0;
+		}
+		.search-hot-text {
+			width: 559px;
+			margin-left: 10px;
+		}
+		.dh {
+			padding: 0px 20px;
+			margin-bottom:20px;
+		}
+		header {
+			height: 60px;
+			border-bottom: 1px solid #e8e8e8;
+		}
+		header .main {
+			padding: 0 24px;
+		}
+		header .logo {
+			float: left;
+			font-size: 27px;
+			margin: 0;
+			font-weight: 400;
+			border: none;
+		}
+		header .logo a {
+			display: block;
+			line-height: 59px;
+			color: #484848;
+			font-weight: 400;
+		}
+		header .logo img {
+			width: 40px;
+			vertical-align: -10px;
+		}
+		header .nav {
+			float: left;
+			margin-left: 25px;
+			padding-top: 0px;
+			height: 100%;
+			display: block;
+			overflow: hidden;
+			position: static;
+			width: auto;
+			box-shadow: none;
+		}
+		header .nav li {
+			float: left;
+			font-size: 16px;
+		}
+		header .nav a {
+			display: block;
+			line-height: 59px;
+			color: #959595;
+			padding: 0 18px;
+			border-bottom: 1px solid #e8e8e8;
+		}
+        header .nav a:hover {
+            border-color: #459df5;
+            color: #459df5;
+        }
+		.content-box {
+			padding: 0 10px;
+			padding-top: 61px;
+		}
+		.main-index {
+			padding-top: 60px;
+		}
+	}
+	@media (min-width: 768px){
+		.sousuo {
+			padding: 10px 0 50px 0;
+			margin-top: 0;
+		}
+		.search-clear {
+			right: 95px;
+		}
+	}
 </style>
+<script src="https://cdn.bootcss.com/zui/1.8.1/lib/jquery/jquery.js"></script>
+<script src="https://cdn.bootcss.com/zui/1.8.1/js/zui.min.js"></script>
 </head>
-<body id="nav_body">
-<!--[if lt IE 10]>
-<div class="alert alert-danger">
-    您正在使用 
-    <strong>过时的</strong> 浏览器. 请更换一个更好的浏览器来提升用户体验.
-</div>
-<![endif]--><!--头部导航条-->
+<body>
 <header>
-<div class="main">
-    <h1 class="logo">
-    <a href="">
-        <span>我的导航</span>
-    </a>
-    </h1>
-    <!--顶部导航条-->
-    <nav class="nav">
-    <!--便携设备右上角菜单-->
-    <button class="nav-btn visible-xs visible-sm"><span class="icon-line top"></span><span class="icon-line middle"></span><span class="icon-line bottom"></span>
-    </button>
-</div>
+    <div class="container" style="padding-right: 0px;padding-left: 0px;">
+        <div class="main">
+            <h1 class="logo">
+                <a href="index.html">
+                     <span>我的网址导航</span>
+                </a>
+            </h1>
+            <!--
+            <nav class="nav">
+                <ul>
+                    <li><a href="https://www.xyz163.com" target="_blank"></a></li>
+                </ul>
+            </nav>
+            <button class="nav-btn visible-xs visible-sm">
+                <span class="icon-line top"></span>
+                <span class="icon-line middle"></span>
+                <span class="icon-line bottom"></span>
+            </button>
+           -->
+        </div>
+	</div>
+	<div class="not_operational"></div>
 </header>
-<div id="content">
-    <!--左侧目录，导航跳转-->
-    <div class="left-bar">
-        <div class="header">
-            <h2>目录</h2>
-        </div>
-        <div class="menu" id="menu">
-            <ul class="scrollcontent">
-                <!--左侧目录，按照需要修改和添加，参考已有的修改名称和href-->
-                <li><a href="#row-1">视频教程</a></li>
-                <li><a href="#row-2">在线学习</a></li>
-            </ul>
-        </div>
-    </div>
-    <!--内容-->
-    <div class="main">
-        <div class="container content-box">
-            <!--搜索栏-->
-            <section class="sousuo">
-            <div class="search">
-                <div class="search-box">
-                    <button class="search-engine-name" id="search-engine-name">搜索</button>
-                    <input type="text" id="txt" class="search-input" placeholder="选择引擎，输入关键字，回车/Enter搜索"/>
-                    <button class="search-btn" id="search-btn">搜索</button>
-                </div>
-                <!-- 搜索引擎 -->
-                <div class="search-engine">
-                    <div class="search-engine-head">
-                        <strong class="search-engine-tit">选择您的默认搜索引擎：</strong>
-                    </div>
-                    <ul class="search-engine-list">
-                    </ul>
-                </div>
-            </div>
-            </section>
-            <!--导航分类范例1，请根据自己的需求进行修改-->
-            <section class="item card-box" id="row-1">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="item-tit">
-                        <strong>视频教程</strong>
-                    </div>
-                    <!--获取内容列表-->
-                    <div class="clearfix two-list-box">
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="https://www.imooc.com/" class="card-link" target="_blank">
-                            <div class="card-tit">慕课网</div>
-                            <div class="card-desc">程序员的梦工厂，慕课网是垂直的互联网IT技能免费学习网站</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://www.jikexueyuan.com/" class="card-link" target="_blank">
-                            <div class="card-tit">极客学院</div>
-                            <div class="card-desc">一家很不错的IT职业在线教育平台，入门教程视频通俗易懂，很适合新手学习</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://www.zhaikexueyuan.com/" class="card-link" target="_blank">
-                            <div class="card-tit">宅客学院</div>
-                            <div class="card-desc">IT职业教育线上品牌，课程涵盖大数据、前端开发、后端开发等，免费课程挺多的</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://jirengu.com/app/album/index" class="card-link" target="_blank">
-                            <div class="card-tit">饥人谷</div>
-                            <div class="card-desc">一家收费的前端开发线上培训机构，虽然课程收费，但是官网还是有挺多免费教程视频的</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://study.163.com/category/it" class="card-link" target="_blank">
-                            <div class="card-tit">网易云课程 - 编程开发</div>
-                            <div class="card-desc">网易旗下实用技能学习平台，内容非常丰富，免费教程也挺多的</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="https://ke.qq.com/course/list?mt=1001" class="card-link" target="_blank">
-                            <div class="card-tit">腾讯课程 - IT&middot;互联网</div>
-                            <div class="card-desc">腾讯推出的专业在线教育平台，采用直播教学方式，适合有充裕时间学习的同学</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </section>
-			<!--范例二 导航内容参考修改，如果需要更多的分类，拷贝整个section标签进行修改-->
-            <section class="item card-box" id="row-2">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="item-tit">
-                        <strong>在线学习</strong>
-                    </div>
-                    <!--获取内容列表-->
-                    <div class="clearfix ">
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://www.w3school.com.cn" class="card-link" target="_blank">
-                            <div class="card-tit">w3school</div>
-                            <div class="card-desc">领先的免费 Web 技术教程，在 w3school，你可以找到你所需要的所有的网站建设教程</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://www.runoob.com/" class="card-link" target="_blank">
-                            <div class="card-tit">菜鸟教程</div>
-                            <div class="card-desc">学的不仅是技术，更是梦想！该站提供了很全的编程技术基础教程，适合入门学习</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://www.hubwiz.com/" class="card-link" target="_blank">
-                            <div class="card-tit">汇智网</div>
-                            <div class="card-desc">汇智网是一个学习最前沿编程技术的平台，提供了node.js、js、jq等相关的课程</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://www.w3cways.com/" class="card-link" target="_blank">
-                            <div class="card-tit">W3Cways</div>
-                            <div class="card-desc">Web前端学习之路，网站提供很丰富的相关技术中文文档</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://www.css88.com/" class="card-link" target="_blank">
-                            <div class="card-tit">WEB前端开发</div>
-                            <div class="card-desc">一个前端开发技术和前端开发资讯的专业博客，专注前端开发，关注用户体验</div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="https://developer.mozilla.org/zh-CN/docs/Learn" class="card-link" target="_blank">
-                            <div class="card-tit">Mozilla 开发者网络</div>
-                            <div class="card-desc">一个完整的学习平台，你可以在这里深入学习网络技术以及能够驱动网络的软件</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </section>
-            <!--页脚-->
-            <footer class="footer">
-            <div class="container">
-                <div class="rwo">
-                    <div class="col-md-12">
-                        <p>
-                            本站内容源自互联网，如有内容侵犯了你的权益，请联系删除相关内容，联系邮箱：xxx
-                        </p>
-                        <!--开源代码，遵循MIT协议，此处保留源代码的声明-->
-                        <p>
-                            Copyright © 2017-2024  All Rights Reserved
-                        </p>
-                    </div>
-                </div>
-            </div>
-            </footer>
-        </div>
-        <!--内容区域-->
-    </div>
-    <div id="get-top" title="回到顶部">
-        <i class="icon icon-arrow-up"></i>
-    </div>
-    
-    <!-- jQuery (ZUI中的Javascript组件依赖于jQuery) -->
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    
+<div id="content" data-customize="true" data-customtheme="true" class="default-bg">
+<div class="main-index">
+<div class="container content-box">
+	<section class="sousuo">
+	  <div class="search">
+		<div class="search-box">
+		  <img class="search-icon" src="images/logo_4.jpg">
+		  <input type="text" id="txt" class="search-input" placeholder="善用搜索">
+		  <button class="search-btn visible-sm visible-md visible-lg" id="search-btn">搜索</button>
+		  <i class="search-clear icon icon-remove-sign" style="display: none;"></i>
+		</div>
+		<!-- 搜索热词 -->
+		<div class="box search-hot-text" id="box" style="display: none;">
+		  <ul></ul>
+		</div>
+		<!-- 搜索引擎 -->
+		<div class="search-engine" style="display: none;">
+		  <div class="search-engine-head">
+			<strong class="search-engine-tit">选择默认搜索引擎：</strong>
+			<div class="search-engine-tool">搜索热词： <span id="hot-btn" class="off"></span></div>
+		  </div>
+		  <ul class="search-engine-list">
+		  </ul>
+		</div>
+	  </div>
+	</section>
+		<div class="row dh">
+			<div class="col-sm-6 col-md-4 mb-3 dh">
+				<div class="row">
+					<div class="col-xs-12"><strong class="dhname" id="1">搜索 · 网页</strong></div>
+					
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 mb-3 dh">
+				<div class="row">
+					<div class="col-xs-12"><strong class="dhname" id="1">搜索 · 磁力</strong></div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 mb-3 dh">
+				<div class="row">
+					<div class="col-xs-12"><strong class="dhname" id="1">搜索 · 图片</strong></div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 mb-3 dh">
+				<div class="row">
+					<div class="col-xs-12"><strong class="dhname" id="1">美图 · 在线</strong></div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 mb-3 dh">
+				<div class="row">
+					<div class="col-xs-12"><strong class="dhname" id="1">软件 · 绿软</strong></div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 mb-3 dh">
+				<div class="row">
+					<div class="col-xs-12"><strong class="dhname" id="1">电影 · 在线</strong></div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+					
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 mb-3 dh">
+				<div class="row">
+					<div class="col-xs-12"><strong class="dhname" id="1">电影 · 下载</strong></div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 mb-3 dh">
+				<div class="row">
+					<div class="col-xs-12"><strong class="dhname" id="1">电影 · APP</strong></div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+					<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+<div class="col-xs-4 mb-2">
+						<a href="index.html" target="_blank">待添加</a>
+					</div>
+				</div>
+			</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+</div>
+</div>
+<footer class="footer text-center bg-white">
+<span>2015 - 2024 倾情制作</span>
+</footer>
+<div id="get-top" title="回到顶部" style="display: none;"><i class="icon icon-arrow-up"></i></div>
 <script>
 window.onscroll = function(){
-//回到顶部
-var sllTop = document.documentElement.scrollTop||document.body.scrollTop;
-if(sllTop>240){
-  $('#get-top').css('display','block')
-}else{
-  $('#get-top').css('display','none')
-}
+  //回到顶部
+  var sllTop = document.documentElement.scrollTop||document.body.scrollTop;
+  if(sllTop>240){
+    $('#get-top').css('display','block')
+  }else{
+    $('#get-top').css('display','none')
+  }
 }
 $('#get-top').click(function(){ 
   $('body,html').animate({
     scrollTop: 0
-  }, 800);//点击回到顶部按钮，数字越小越快
+  }, 800);//点击回到顶部按钮，缓懂回到顶部,数字越小越快
 })
+// 显示/隐藏二级菜单
+$(".left-menu-btn").hover(function(){
+  $('#tow-nav').fadeIn(200);
+},function(){
+  $("#tow-nav").hover(function(){
+    $('#tow-nav').fadeIn(0);
+  },function(){
+    $('#tow-nav').fadeOut(0)
+  });
+  $('#tow-nav').fadeOut(0)
+})
+
+
 //判断用户使用的设备
 var deviceVal  = browserRedirect();
 function browserRedirect() {
@@ -912,99 +992,180 @@ function browserRedirect() {
     return 'pc';
   }
 }
-  $('.nav-btn').on('click', function () {
-    $('.nav').toggleClass('showNav');
-    $(this).toggleClass('animated2');
-  });
- 
-// 默认搜索引擎的内容，如果界面修改了需要同步修改
-var thisSearch = 'http://www.caup.cn/search?q=';
 
-$('#txt').keydown(function(ev){
-    // 回车键的处理
-    if(ev.keyCode==13){
-        window.open(thisSearch + $('#txt').val())
-        // $('#txt').val('');
-        $('#box ul').html('')
+/*
+ * 2018-6-12更新
+ * 解决在低分辨率下首页内容过高导致滚动条出现，影响主题背景图片不全屏的问题
+ * 解决方式：对于屏幕分辨率高度低于845px显示器，改变首页的内容为6块区域。
+ */
+
+ (function(){
+  //当浏览器窗口被调整大小时触发
+  window.onresize = function(){
+    ShowHideElement("i-link-box","linkList-item",845);
+  }
+  window.onload = function(){
+    ShowHideElement("i-link-box","linkList-item",845); 
+  }
+  function ShowHideElement(Element1, Element2, Vaule){
+    var Person = document.getElementsByClassName(Element1);
+    var BoxHeight = document.getElementsByClassName(Element2);
+    var WindowHeight = window.innerHeight||document.body.clientHeight;
+    //遍历获取到的元素
+    for(var i=6; i<Person.length; i++){
+      if(WindowHeight <= Vaule && deviceVal === "pc"){
+        Person[i].style.display = "none";
+        BoxHeight[0].style.marginTop="5px";
+      }else{
+        Person[i].style.display = "block";
+        BoxHeight[0].style.marginTop="0px";
+      }
     }
-})
+  }
+  window.ShowHideElement = ShowHideElement;
+}());
+    
+// 在这里修改id，和速度
 $(function(){
-  // 搜索引擎列表，样式一行五个内容，自动换行
-  var search = {
-    data: [ {
-      name: '百度',
-      url: 'https://www.baidu.com/s?wd='
-    }, {
-      name: '小众搜索',
-      url: 'http://www.caup.cn/search?q='
-    }, {
-      name: '谷歌',
-      url: 'https://www.google.com/search?q='
-    }, {
-      name: '必应',
-      url: 'https://cn.bing.com/search?q='
-    }, {
-      name: '好搜',
-      url: 'https://www.so.com/s?q='
-    }, {
-      name: '搜狗',
-      url: 'https://www.sogou.com/web?query='
-    }, {
-      name: '淘宝',
-      url: 'https://s.taobao.com/search?q='
-    }, {
-      name: '京东',
-      url: 'http://search.jd.com/Search?keyword='
-    }, {
-      name: '天猫',
-      url: 'https://list.tmall.com/search_product.htm?q='
-    }, {
-      name: '1688',
-      url: 'https://s.1688.com/selloffer/offer_search.htm?keywords='
-    }, {
-      name: '知乎',
-      url: 'https://www.zhihu.com/search?type=content&q='
-    }, {
-      name: '微博',
-      url: 'https://s.weibo.com/weibo/'
-    }, {
-      name: 'Bilibili',
-      url: 'http://search.bilibili.com/all?keyword='
-    }, {
-      name: '豆瓣',
-      url: 'https://www.douban.com/search?source=suggest&q='
-    }, {
-      name: '优酷',
-      url: 'https://so.youku.com/search_video/q_'
-    }, {
-      name: 'GitHub',
-      url: 'https://github.com/search?q='
-    }]
-  }
-  for(var i = 0; i < search.data.length; i++){
-    var addList = '<li>' + search.data[i].name + '</li>'
-    $('.search-engine-list').append(addList);
-  }
-  $('.search-engine-name, .search-engine').hover(function() {
-    $('.search-engine').css('display', 'block')
-  }, function() {
-    $('.search-engine').css('display', 'none')
-  });
-  $('.search-engine-list li').click(function() {
-    var _index = $(this).index();
-    var searchNameBtn = document.getElementById("search-engine-name");
-    searchNameBtn.innerHTML = search.data[_index].name;
-    thisSearch = search.data[_index].url;
-    $('.search-engine').css('display', 'none')
-  })
+    if(deviceVal == 'phone'){
+      $('#menu').css({'overflow':'hidden','overflow-y':'scroll'})
+      return
+    }
+    var api1 = new myApi();
+    api1.mouseScroll.inte($('#menu'),30);
 })
-$("#search-btn").click(function(){
-  var textValue = $('#txt').val();
-  if(textValue != ''){
-    window.open(thisSearch + textValue)
-  }
-});
+
+
+//下面别动
+function myApi(){
+
+    this.mouseScroll = {
+
+        inte : function(obj,value){
+            this.OBJ = obj;
+            this.addscroll(obj);
+
+
+
+            var outH = obj.outerHeight(),
+                oScrollcontent = obj.children(':first'),
+                contentH = oScrollcontent.outerHeight(),
+                oYscrollinnerH = outH/contentH*outH,
+                oYscrollouter = obj.find('#Yscrollouter'),
+                oYscrollinner = obj.find('#Yscrollinner');
+
+            obj.css({'position': 'relative','overflow':'hidden'});
+            oScrollcontent.css('position', 'absolute');
+
+            if(contentH > outH){
+                this.mousehover(obj, oYscrollouter, oYscrollinner);
+                this.mousewheel(obj, value, oScrollcontent, oYscrollinner, outH, contentH, oYscrollinnerH );
+                this.mousemoved(obj, oScrollcontent, oYscrollouter, oYscrollinner, outH, contentH, oYscrollinnerH );
+            };
+        },
+
+        addscroll : function(obj,value){
+            obj.append('<div id="Yscrollouter"><div id="Yscrollinner"></div></div>');
+            $('#Yscrollinner').css('cursor','pointer');
+        },
+
+        mousehover : function(obj, outer, inner){
+
+            obj.hover(function() {
+                outer.fadeIn(400);
+            }, function() {
+                outer.fadeOut(400);
+            });
+
+            inner.hover(function() {
+                $('body').css({
+                    '-moz-user-select': 'none',
+                    '-webkit-user-select': 'none',
+                    '-ms-user-select': 'none',
+                    '-khtml-user-select': 'none',
+                    'user-select': 'none',});
+            }, function() {
+                $('body').css({
+                    '-moz-user-select': 'auto',
+                    '-webkit-user-select': 'auto',
+                    '-ms-user-select': 'auto',
+                    '-khtml-user-select': 'auto',
+                    'user-select': 'auto',});
+            });
+
+        },
+
+        mousewheel : function(obj, value, O, inner, H1, H2, H3){
+
+            var oScrollcontentVal = value/(H1 - H3)*(H2 - H1);
+
+                inner.height(H3);  //滚动条高度
+
+            obj.on('mousewheel',function(event,delta ){  //绑定滚轮事件
+
+                event.preventDefault();  //阻止浏览器默认为行
+
+                var delta = event.originalEvent.wheelDelta;
+                var oYscrollinnerTop = inner.position().top;
+
+                var oScrollcontentTop = O.position().top;
+
+                if(delta > 0){
+                    if(oYscrollinnerTop - value < 0){
+                        inner.css('top', 0);
+                        O.css('top', 0);
+                    }else{
+                        inner.css('top', oYscrollinnerTop - value);
+                        O.css('top', oScrollcontentTop + oScrollcontentVal);
+                    }
+                }else{
+                    if(oYscrollinnerTop + value > H1 - H3){
+                        inner.css('top', H1 - H3);
+                        O.css('top', H1 - H2);
+                    }else{
+                        inner.css('top', oYscrollinnerTop + value);
+                        O.css('top', oScrollcontentTop - oScrollcontentVal);
+                    }
+                };
+            });
+
+        },
+
+        mousemoved : function(obj, O, outer, inner, H1, H2, H3){
+            inner.on('mousedown',function(event){   //绑定鼠标事件
+
+                var clientY = event.clientY,
+                    oYscrollinnerTop = inner.position().top,
+                    oScrollcontentTop = O.position().top,
+
+                    moveY = 0;
+
+                    $(document).on('mousemove',function(event){
+                        moveY = event.clientY - clientY;
+                        var oScrollcontentMove = moveY/(H1 - H3)*(H2 - H1);
+
+                        if(oYscrollinnerTop + moveY < 0){
+                            inner.css('top', 0);
+                            O.css('top', 0);
+                        }else if(oYscrollinnerTop + moveY > H1 - H3){
+                            inner.css('top', H1 - H3);
+                            O.css('top', H1 - H2);
+                        }else{
+                            inner.css('top', oYscrollinnerTop + moveY);
+                            O.css('top', oScrollcontentTop - oScrollcontentMove);
+                        }
+                    });
+
+                    $(document).on('mouseup',function(event){
+                        $(document).off('mousemove');
+                    })
+
+            })
+        }
+
+    }
+}
+
 </script>
-</div>
 </body>
 </html>
